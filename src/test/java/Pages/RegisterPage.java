@@ -34,6 +34,8 @@ public class RegisterPage extends BasePage {
         clickElement(By.xpath("//button[@type='submit']"));
     }
 
+    // performs assertions that the page's filled fields match the expected values
+    // (the text that we used to fill these fields)
     private void assertFields()
     {
         Assert.assertEquals(getWebElement(By.cssSelector("input[type=text]")).getAttribute("value"), newUserFirstName);
