@@ -8,6 +8,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class Tester {
+
+    // a function that tests the flow of buying a gift card on the site buyme.co.il.
     @Test
     public void BuyMe() throws InterruptedException{
 
@@ -26,6 +28,7 @@ public class Tester {
         buyGiftPage.buyGift();
     }
 
+    // closes the google chrome web browser after tests are done.
     @AfterClass public void afterClass() throws Exception
     {
         Thread.sleep(3000);

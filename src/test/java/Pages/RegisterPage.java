@@ -9,6 +9,8 @@ public class RegisterPage extends BasePage {
       private static final String newUserFirstName = "amit";
       private static final String newUserEmail = "amitzohar1979@gmail.com";
       private static final String newUserPassword = "12345";
+
+    // performs registration of a new user to the buyme site.
         public void register() throws InterruptedException {
         DriverSingleton.getInstance().get("https://buyme.co.il/?modal=login");
         clickElement(By.xpath("//span[@class='text-link theme']"));
@@ -18,6 +20,7 @@ public class RegisterPage extends BasePage {
         pressRegister();
     }
 
+    // enters the credentials of the new user.
     private void enterCredentials() throws InterruptedException {
         sendKeysToElement(By.cssSelector("input[type=text]"), newUserFirstName);
         sendKeysToElement(By.xpath("//input[@type='email']"), newUserEmail);
@@ -25,6 +28,7 @@ public class RegisterPage extends BasePage {
         clickElement(By.xpath("//span[@class='circle']"));
     }
 
+    // click the registration button.
     private void pressRegister()
     {
         clickElement(By.xpath("//button[@type='submit']"));

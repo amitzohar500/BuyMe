@@ -14,6 +14,7 @@ public class DriverSingleton {
 
     private static WebDriver driver;
 
+    // gets the single instance of selenium chrome web driver
     public static WebDriver getInstance()
     {
         if (driver == null)
