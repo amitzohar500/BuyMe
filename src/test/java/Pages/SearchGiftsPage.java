@@ -40,7 +40,7 @@ public class SearchGiftsPage extends BasePage {
 
     }
 
-    // assert that the search was indeed on the entered desired gifts' search criteria
+    // assert that the actual search was made using the entered desired gifts' search criteria.
     private void assertFields()
     {
         String expectedSearchURL = "https://buyme.co.il/search?budget=" +
