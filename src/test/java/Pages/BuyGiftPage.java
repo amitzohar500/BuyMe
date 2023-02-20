@@ -11,8 +11,8 @@ import java.time.Duration;
 public class BuyGiftPage extends BasePage {
 
     // performs the main flow of buying a gift which includes choosing the gift sending method,
-    // details of the gift's receiver and sender as well as additional information
-    // such as included pics, vids and blessing.
+    // filling the details of the gift's receiver and sender as well as filling additional information
+    // such as the gift's included pics, vids and blessing.
     WebDriverWait wait;
     By giftReceiverBy = By.xpath("//label[@id='friendName']/input");
     String giftReceiverName = "dad";
@@ -28,6 +28,7 @@ public class BuyGiftPage extends BasePage {
       waitForElem2BeClickableNClick(wait, By.xpath("//button[@type='submit' and @gtm[contains(.,'תשלום')]]"));
     }
 
+    // fills the gift receiver's info as well as the event's info.
     public void fillGiftReceiverAndEventInfo() throws InterruptedException
     {
         waitForElem2BeClickableNClick(wait, By.xpath("//div[@class='buttons']/div[@gtm='למישהו אחר']"));
@@ -43,6 +44,7 @@ public class BuyGiftPage extends BasePage {
         waitForElem2BeClickableNClick(wait, By.xpath("//button[@type='submit' and @gtm='המשך']"));
     }
 
+    // fills the gift send info (send method, sender name, etc..)
     public void fillGiftSendInfo() throws InterruptedException
     {
         waitForElem2BePresentNClick(wait, By.xpath("//div[@class='buttons']/div[@gtm='עכשיו']"));
@@ -53,7 +55,8 @@ public class BuyGiftPage extends BasePage {
     }
 
 
-    // assert that the search was indeed on the entered desired gifts' search criteria
+    // asserts that the actual page's sender and receiver fields' values
+    // match the expected values / text (the values that were entered by the program).
     private void assertFields()
     {
         var actualGiftSenderName = getWebElement(giftSenderBy).getAttribute("value");
