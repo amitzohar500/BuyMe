@@ -13,7 +13,7 @@ public class SearchGiftsPage extends BasePage {
     private static final String searchBudgetId="1";
     private static final String searchRegionId="11";
     private static final String searchCategoryId="438";
-    WebDriverWait wait;
+    private WebDriverWait wait;
 
     // search for gifts by a search criteria.
   public void searchGifts() throws InterruptedException {

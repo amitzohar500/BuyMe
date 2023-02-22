@@ -10,18 +10,18 @@ import java.time.Duration;
 
 public class BuyGiftPage extends BasePage {
 
-    // performs the main flow of buying a gift which includes choosing the gift sending method,
-    // filling the details of the gift's receiver and sender as well as filling additional information
-    // such as the gift's included pics, vids and blessing.
-    WebDriverWait wait;
+
+    WebDriverWait wait =  new WebDriverWait(DriverSingleton.getInstance(), Duration.ofSeconds(10));
     By giftReceiverBy = By.xpath("//label[@id='friendName']/input");
     String giftReceiverName = "dad";
     By giftSenderBy = By.xpath("//input[@placeholder='שם שולח המתנה']");
     String giftSenderName = "amit";
 
+    // performs the main flow of buying a gift which includes choosing the gift sending method,
+    // filling the details of the gift's receiver and sender as well as filling additional information
+    // such as the gift's included pics, vids and blessing.
   public void buyGift() throws InterruptedException {
 
-       wait = new WebDriverWait(DriverSingleton.getInstance(), Duration.ofSeconds(5));
       fillGiftReceiverAndEventInfo();
       fillGiftSendInfo();
       assertFields();
