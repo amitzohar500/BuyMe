@@ -13,9 +13,11 @@ public class SearchGiftsPage extends BasePage {
     private static final String searchBudgetId="1";
     private static final String searchRegionId="11";
     private static final String searchCategoryId="438";
+    WebDriverWait wait;
 
     // search for gifts by a search criteria.
   public void searchGifts() throws InterruptedException {
+       wait = new WebDriverWait(DriverSingleton.getInstance(), Duration.ofSeconds(10));
         enterSearchCriteria();
         pressSearchButton();
         assertFields();
@@ -24,7 +26,6 @@ public class SearchGiftsPage extends BasePage {
     // enter the desired gifts' search criteria (price point, region and category).
     private void enterSearchCriteria() throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(DriverSingleton.getInstance(), Duration.ofSeconds(10));
         clickElemUsingJS(By.xpath("//span[@title='סכום']"));
         waitForElem2BeClickableNClick(wait, By.xpath("//li[@value='" + searchBudgetId + "']/span"));
         clickElemUsingJS(By.xpath("//span[@title='אזור']"));
@@ -36,8 +37,7 @@ public class SearchGiftsPage extends BasePage {
     // press on the gift search button.
     private void pressSearchButton()
     {
-        clickElement(By.xpath("//a[contains(@href, 'search')]"));
-
+        clickElemUsingJS(By.xpath("//a[contains(@href, 'search')]"));
     }
 
     // assert that the actual search was made using the entered desired gifts' search criteria.
